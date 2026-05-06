@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="5" />
+  <title>🌡️ Temp Dashboard + Plot</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    .stats { margin-bottom: 20px; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; }
+    img { border: 1px solid #ddd; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🌡️ Real-Time Temperature Dashboard</h1>
+
+  <div class="stats">
+    <p><strong>Current Temp:</strong> {{ current }} °C</p>
+    <p><strong>Max Temp:</strong> {{ max_temp }} °C</p>
+    <p><strong>Min Temp:</strong> {{ min_temp }} °C</p>
+    <p><strong>Avg Temp:</strong> {{ avg_temp }} °C</p>
+  </div>
+
+  <h2>📜 Last 10 Logs</h2>
+  <pre>
+{% for row in logs %}
+{{ row.Time }} - {{ row.Temp }}°C
+{% endfor %}
+  </pre>
+
+  <h2>📈 Live Plot</h2>
+  <img src="{{ plot_path }}" alt="Temperature Plot" width="100%">
+</body>
+</html>
